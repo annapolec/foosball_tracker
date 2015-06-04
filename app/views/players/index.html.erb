@@ -2,7 +2,7 @@
 <table class='players'>
 	<% @players.each do |player| %>
 	  <tr>
-	 	 <td> <%= image_tag(player.avatar, class: 'display_image') %> </td>
+	 	 <td> <%= image_tag player.avatar.url(:medium) %> </td>
 	  	 <td> <%= player.first_name %> <%=player.last_name %> </td>
 	  	 <td> <%= link_to "Show", player %> <br>
 	  	 	  <%= link_to "Edit", edit_player_path(player) %> <br>

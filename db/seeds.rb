@@ -8,6 +8,16 @@
 
 Player.delete_all
 
-Player.create!(first_name: 'Piotr', last_name: 'Lis', avatar: 'Piotr_Lis.jpg')
-Player.create!(first_name: 'Olga', last_name: 'Madej', avatar: 'Olga_Madej.jpg')
-Player.create!(first_name: 'Paula', last_name: 'Nowak', avatar: 'Paula_Nowak.jpg')
+Player.create!(first_name: 'Piotr', 
+			   last_name: 'Lis', 
+			   avatar: 'Piotr_Lis.jpg')
+
+
+Player.create!(first_name: 'Olga', 
+			   last_name: 'Madej', 
+			   avatar: 'Olga_Madej.jpg')
+
+Player.create!(first_name: 'Paula', 
+			   last_name: 'Nowak', 
+			   avatar: 'Paula_Nowak.jpg')
+ 

@@ -6,18 +6,17 @@ class PlayerTest < ActiveSupport::TestCase
   	player = Player.new
   	assert player.invalid?
   	assert player.errors[:first_name].any?
-  	assert player.errors[:last_name].any?
-  	assert player.errors[:avatar].any?  	
+  	assert player.errors[:last_name].any?	
   end
   
 
 def new_player(image)
 	Player.new(first_name: "Ania",
 				last_name: "Polec",
-				avatar: image)
+				avatar_file_name: image)
 end
 
- test "avatar format" do
+ test "avatar file name should be valid " do
 	ok = %w{ fred.gif fred.jpg fred.png FRED.JPG FRED.Jpg
 			 http://a.b.c/x/y/z/fred.gif }
 	bad = %w{ fred.doc fred.gif/more fred.gif.more }

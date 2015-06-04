@@ -9,9 +9,11 @@
 </p>
 
 <p>
-  <strong>Photo:</strong>
-  <%= @player.avatar %>
+  <strong>Photo:</strong><br>
+	<%= image_tag @player.avatar.url(:thumb) %>
 </p>
 
 <%= link_to "Edit", edit_player_path(@player) %>
 <%= link_to "Back", players_path %>
+
+

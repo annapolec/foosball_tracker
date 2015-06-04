@@ -3,9 +3,15 @@
 one:
   first_name: Magda
   last_name: Janusz
-  avatar: mj.jpg
+  avatar_file_name: "magda.jpg" 
+  avatar_content_type: "image"
+  avatar_file_size: 1.megabytes
+  
+  
 
 two:
   first_name: MyString
   last_name: MyString
-  avatar: MyString.png
+  avatar_file_name: "magda.jpg" 
+  avatar_content_type: "image"
+  avatar_file_size: 1.megabytes
