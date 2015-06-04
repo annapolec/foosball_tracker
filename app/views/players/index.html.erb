@@ -1,0 +1,16 @@
+<h1>Listing players</h1>
+<table class='players'>
+	<% @players.each do |player| %>
+	  <tr>
+	 	 <td> <%= image_tag(player.avatar, class: 'display_image') %> </td>
+	  	 <td> <%= player.first_name %> <%=player.last_name %> </td>
+	  	 <td> <%= link_to "Show", player %> <br>
+	  	 	  <%= link_to "Edit", edit_player_path(player) %> <br>
+			  <%= link_to "Destroy", player, method: :delete, data: { confirm: 'Are you sure?' } %>
+		 </td>  	 	
+	  </tr>
+	<% end %>
+</table>
+
+<br>
+<%= link_to "New player", new_player_path %>

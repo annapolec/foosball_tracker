@@ -1,0 +1,21 @@
+<h1>New player</h1>
+	<% if @player.errors != nil %>
+		<% @player.errors.full_messages.each do |message| %>
+			<%= message %>
+		<% end %>
+	<% end %>
+
+<%= form_for @player, url: {action: "create"} do |f| %>
+	<h3> First name </h3><br>
+	<%= f.text_field :first_name %><br>
+	
+	<h3> Last name </h3><br>
+	<%= f.text_field :last_name %><br>
+
+	<h3> Photo </h3><br>
+	<%= f.text_field :avatar %><br>
+
+	 <%= f.submit %>
+<% end %>
+
+<%= link_to "Back", players_path %>
