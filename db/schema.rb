@@ -11,12 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150604213043) do
+ActiveRecord::Schema.define(version: 20150605105955) do
 
   create_table "matches", force: true do |t|
     t.date     "date"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "player1_id"
+    t.integer  "player2_id"
+    t.integer  "player1_score"
+    t.integer  "player2_score"
   end
 
   create_table "players", force: true do |t|
@@ -28,6 +32,14 @@ ActiveRecord::Schema.define(version: 20150604213043) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+  end
+
+  create_table "results", force: true do |t|
+    t.integer  "player_id"
+    t.integer  "match_id"
+    t.integer  "score"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
