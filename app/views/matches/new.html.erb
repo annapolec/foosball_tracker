@@ -1,0 +1,22 @@
+<h1>New Match</h1>
+	<% if @match.errors != nil %>
+		<% @match.errors.full_messages.each do |message| %>
+			<%= message %>
+		<% end %>
+	<% end %>
+
+<%= form_for @match, url: {action: "create"} do |f| %>
+	<h3> Date </h3><br>
+	<%= f.date_field :date %><br>
+
+	<h3> First Player <h3>
+	<%= f.collection_select :player_ids, Player.all, :id, :last_name, :include_blank => true %>
+	<h3> Second Player <h3>
+	<%= f.collection_select :player_ids, Player.all, :id, :last_name, :include_blank => true %>
+	
+	<br><br>
+	<%= f.submit %>
+	
+<% end %>
+
+<%= link_to "Back", root_path %>
