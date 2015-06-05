@@ -10,6 +10,7 @@ class PlayersController < ApplicationController
 
   def create
   	@player = Player.new(player_params)
+    
 	
 	if @player.save
       redirect_to @player
@@ -25,8 +26,8 @@ class PlayersController < ApplicationController
   def destroy
   	@player = Player.find(params[:id])
   	@player.avatar = nil
-	@player.save
-  	redirect_to players_path
+    @player.destroy
+	  redirect_to players_path
   end
 
   def edit
@@ -45,7 +46,8 @@ class PlayersController < ApplicationController
 
   private
   def player_params
-      params.require(:player).permit(:first_name, :last_name, :avatar)
+      params.require(:player).permit(:first_name, :last_name, 
+                                     :avatar_file_name, :avatar_content_type, :avatar_file_size)
   end
  
 end

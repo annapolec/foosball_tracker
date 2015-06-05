@@ -29,7 +29,7 @@ gem 'jbuilder', '~> 1.2'
 
 gem "paperclip", "~> 4.2"
 
-group :development do
+group :development, :test do
 	gem 'pry'
 end
 
