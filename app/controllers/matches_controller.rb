@@ -5,8 +5,8 @@ class MatchesController < ApplicationController
   end
 
   def create  	  
-  	@match = Match.new(matches_params)	
-	  if @match.save
+  	@match = Match.new(matches_params)
+    if @match.save
       redirect_to matches_path
     else      
       render action: 'new'
@@ -38,7 +38,16 @@ class MatchesController < ApplicationController
 
   private
   def matches_params
-      params.require(:match).permit(:date, :player1_id, :player2_id, :player1_score, :player2_score)
+    valid_params = params.require(:match).permit(:date, :player1_id, :player2_id, 
+                                                :player1_score, :player2_score)
+    valid_params[:date] = parse_date(valid_params[:date])
+    valid_params
+
   end
+
+  def parse_date(date_string)
+    Date.strptime(date_string, "%m/%d/%Y")
+  end
+  
 
 end

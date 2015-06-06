@@ -21,6 +21,9 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+# for calendar
+gem 'jquery-ui-rails'
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
@@ -32,6 +35,7 @@ gem "paperclip", "~> 4.2"
 group :development, :test do
 	gem 'pry'
 end
+
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
