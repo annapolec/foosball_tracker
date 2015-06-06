@@ -1,0 +1,29 @@
+<h1>Ranking</h1>
+
+<% @matches.each do |match| %>
+	<%= Player.find(match.player1_id).last_name %>	 <%= match.player1_score %>
+	<%= Player.find(match.player2_id).last_name %> 	 <%= match.player2_score %>
+	<br>
+	<% end %>
+
+<br><br><br><br>
+<p>Sumy punktów </p>
+<% @players.each do |player| %>
+	<%= player.last_name %>
+	<%= Match.where(player1_id: player.id).sum(:player1_score)+
+	 Match.where(player2_id: player.id).sum(:player2_score) %>
+	<br>
+
+<p>Punkty za wygraną</p>
+<% @players.each do |player| %>
+	
+
+	
+<% end %>
+
+
+
+
+
+
+
