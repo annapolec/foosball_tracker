@@ -4,22 +4,35 @@
 	<%= Player.find(match.player1_id).last_name %>	 <%= match.player1_score %>
 	<%= Player.find(match.player2_id).last_name %> 	 <%= match.player2_score %>
 	<br>
-	<% end %>
-
-<br><br><br><br>
-<p>Sumy punktów </p>
-<% @players.each do |player| %>
-	<%= player.last_name %>
-	<%= Match.where(player1_id: player.id).sum(:player1_score)+
-	 Match.where(player2_id: player.id).sum(:player2_score) %>
-	<br>
-
-<p>Punkty za wygraną</p>
-<% @players.each do |player| %>
-	
-
-	
 <% end %>
+
+<br>
+<p>Total score </p>
+<% @players.each do |player| %>
+	<%= player.last_name %><%= player.total_score %>	
+	<br>
+<% end %>
+
+<p>Number of wins </p>
+<% @players.each do |player| %>
+	<%= player.last_name %><%= player.wins %>	
+	<br>
+<% end %>
+
+<p>Number of losts </p>
+<% @players.each do |player| %>
+	<%= player.last_name %><%= player.losts %>	
+	<br>
+<% end %>
+
+<p>Number of points in general classification </p>
+<% @players.each do |player| %>
+	<%= player.last_name %><%= player.points %>	
+	<br>
+<% end %>
+	
+
+	
 
 
 
