@@ -9,9 +9,8 @@ class PlayersController < ApplicationController
   end
 
   def create
-  	@player = Player.new(player_params)
-    
-	
+  	@player = Player.new(player_params)  
+    	
 	if @player.save
       redirect_to @player
     else      
@@ -42,7 +41,6 @@ class PlayersController < ApplicationController
       render action: 'edit'
   	end  	
   end
-
 
   private
   def player_params

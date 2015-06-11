@@ -1,4 +1,4 @@
-<h1>New Match</h1>
+<h1>New match</h1>
 	<% if @match.errors != nil %>
 		<% @match.errors.full_messages.each do |message| %>
 			<%= message %>
@@ -6,21 +6,15 @@
 	<% end %>
 
 <%= form_for @match, url: {action: "create"} do |f| %>
-	<p>Date: 
-		<%= f.text_field :date, id: 'datepicker' %>
-	 </p>
+	<h4>Date: <%= f.text_field :date, id: 'datepicker' %></h4>		
+	<h4>First Player: <%= f.collection_select :player1_id, Player.all, :id, 
+											 											:last_name, :include_blank => true %></h4>
+	<h4>Second Player: <%= f.collection_select :player2_id, Player.all, :id, 
+											  :last_name, :include_blank => true %></h4>
 
-		
-	<p>First Player: <%= f.collection_select :player1_id, Player.all, :id, 
-											 :last_name, :include_blank => true %></p>
-	<p>Second Player: <%= f.collection_select :player2_id, Player.all, :id, 
-											  :last_name, :include_blank => true %>
-
-	<p>Score of first player: <%= f.text_field :player1_score %> </p>
-	<p>Score of second player: <%= f.text_field :player2_score %>  </p>
-	<br><br>
+	<h4>Score of first player: <%= f.text_field :player1_score, class: 'form-control' %></h4>
+	<h4>Score of second player: <%= f.text_field :player2_score, class: 'form-control' %></h4>	
 	<%= f.submit %>
 
 <% end %>
 
-<%= link_to "Back", root_path %>

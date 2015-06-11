@@ -10,7 +10,4 @@ class Match < ActiveRecord::Base
     	errors.add(:score1, 'There has to be one winner') unless 
     					((player1_score == 10 || player2_score == 10)&&(player1_score+player2_score!=20))
  	end
-
- 	
-
 end

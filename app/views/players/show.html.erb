@@ -1,19 +1,25 @@
-<p>
-  <strong>First name:</strong>
-  <%= @player.first_name %>
-</p>
+<div class="row">
+  <div class="col-sm-3"><%= image_tag @player.avatar.url(:medium), class: 'img-round' %> </div>
+  <div class="col-sm-9">
+  	<h4> Number of matches: <%= @player.number_of_matches %> </h4>
+  	<h4> Number of wins: <%= @player.wins %> </h4> 
+  	<h4> Number of losts: <%= @player.losts %> </h4><br>
+  	<h4> Number of points in general clasification: <%= @player.points %> </h4>
+  	<h4> Number of goals: <%= @player.total_score %> </h4>
+  	<h4> Average number of goals: <%= @player.average_number_of_goals %> </h4>  	
+  </div>  
+</div>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @player.last_name %>
-</p>
+<div class="row">
+	<div class="col-sm-4">
+		<h3> <%= @player.first_name %> <%= @player.last_name %> </h3>
+	</div>
+</div>
 
-<p>
-  <strong>Photo:</strong><br>
-	<%= image_tag @player.avatar.url(:thumb) %>
-</p>
+<%= link_to edit_player_path(@player), class: 'btn btn-default' do %>
+  <span class="glyphicon glyphicon-pencil"></span>
+  Edit
+<% end %>
 
-<%= link_to "Edit", edit_player_path(@player) %>
-<%= link_to "Back", players_path %>
 
 

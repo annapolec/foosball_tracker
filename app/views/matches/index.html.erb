@@ -1,17 +1,37 @@
 <h1>Listing matches</h1>
-<table class='matches'>
+<table class="table table-striped">
+	<tr>
+    <th>Date</th>
+    <th>Player #1</th>
+    <th>Player #2</th>
+    <th>Score #1</th>
+    <th>Score #2</th>
+    <th></th>
+    <th></th>
+  </tr> 
 	<% @matches.each do |match| %>
 	  <tr>
-		
-	  <%=match.player1.last_name %> </td>
-	  <%=match.player2.last_name %> </td>
-	  	 <td> <%= match.player1_score %>:<td> <%= match.player2_score %>
-	  	 <td> <%= link_to "Edit", edit_match_path(match) %> <br>
-			  <%= link_to "Destroy", match, method: :delete, data: { confirm: 'Are you sure?' } %>
-		 </td>  	 	
+	  	<td><%= match.date %></td>		
+	  	<td><%=match.player1.last_name %></td>
+	  	<td><%=match.player2.last_name %></td>
+	  	<td> <%= match.player1_score %><td> <%= match.player2_score %>	  	
+	  	<td> 
+  	 		<%= link_to edit_match_path(match), class: 'btn btn-default' do %>
+  	 			<span class="glyphicon glyphicon-pencil"></span>
+  	 			Edit
+  	 		<% end %>
+  	 	</td>
+  	 	<td> 
+		  	<%= link_to match, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>		<span class="glyphicon glyphicon-remove"></span>
+		  		Destroy
+		  		<% end %>
+		  </td>
 	  </tr>
 	<% end %>
 </table>
 
-<br>
-<%= link_to "New match", new_match_path %>
+<%= link_to new_match_path, class: 'btn btn-primary btn-lg' do %>
+	<span class="glyphicon glyphicon-plus"></span>
+	New match
+<% end %>
+

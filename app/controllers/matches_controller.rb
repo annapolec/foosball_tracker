@@ -40,14 +40,15 @@ class MatchesController < ApplicationController
   def matches_params
     valid_params = params.require(:match).permit(:date, :player1_id, :player2_id, 
                                                 :player1_score, :player2_score)
-    valid_params[:date] = parse_date(valid_params[:date])
+    #valid_params[:date] = parse_date(valid_params[:date])
     valid_params
 
   end
 
-  def parse_date(date_string)
-    Date.strptime(date_string, "%m/%d/%Y")
-  end
+  #def parse_date(date_string)
+   # Date.strptime(date_string, "%m/%d/%Y")
+  #end
+  
   
 
 end

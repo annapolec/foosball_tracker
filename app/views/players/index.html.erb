@@ -1,16 +1,42 @@
 <h1>Listing players</h1>
-<table class='players'>
-	<% @players.each do |player| %>
-	  <tr>
-	 	 <td> <%= image_tag player.avatar.url(:medium) %> </td>
-	  	 <td> <%= player.first_name %> <%=player.last_name %> </td>
-	  	 <td> <%= link_to "Show", player %> <br>
-	  	 	  <%= link_to "Edit", edit_player_path(player) %> <br>
-			  <%= link_to "Destroy", player, method: :delete, data: { confirm: 'Are you sure?' } %>
-		 </td>  	 	
+<table class="table table-striped">
+	<% @players.each do |player| %>		
+    <tr>
+	  	<td><%= image_tag player.avatar.url(:thumb), class: 'img-round' %> </td>	 	
+  	 	<td><h4><%= player.first_name %> <%=player.last_name %><h4></td>  
+  	 	
+  	 	<td> 
+  	 		<%= link_to player, class: 'btn btn-default' do %> 
+  	 			<span class="glyphicon glyphicon-search"></span>
+    			Show
+  			<% end %>
+  	 	</td>
+
+  	 	<td> 
+  	 		<%= link_to edit_player_path(player), class: 'btn btn-default' do %>
+  	 			<span class="glyphicon glyphicon-pencil"></span>
+  	 			Edit
+  	 		<% end %>
+  	 	</td>
+
+		  <td> 
+		  	<%= link_to player, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' do %>		<span class="glyphicon glyphicon-remove"></span>
+		  		Destroy
+		  		<% end %>
+		  </td>		 		  	 	
 	  </tr>
 	<% end %>
 </table>
 
-<br>
-<%= link_to "New player", new_player_path %>
+<%= link_to new_player_path, class: 'btn btn-primary btn-lg' do %>
+	<span class="glyphicon glyphicon-plus"></span>
+	New player
+<% end %>
+
+
+
+
+
+
+
+  
