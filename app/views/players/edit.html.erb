@@ -3,7 +3,7 @@
 		<% @player.errors.full_messages.each do |message| %>
 			<%= message %>
 		<% end %>
-	<% end %>
+<% end %>
 
 <%= form_for @player, url: {action: "update"} do |f| %>
 	<h3> First name </h3><br>
@@ -14,7 +14,6 @@
 
 	<h3> Photo </h3><br>
 	<%= f.file_field :avatar %>
-
-	 <%= f.submit %>
+	<%= f.submit %>
 <% end %>
 
