@@ -41,7 +41,9 @@ class Player < ActiveRecord::Base
 	end
 
 	def average_number_of_goals
-		total_score/number_of_matches
+		if number_of_matches != 0
+			total_score/number_of_matches
+		end
 	end
 
 end

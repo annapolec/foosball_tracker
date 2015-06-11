@@ -10,7 +10,7 @@ class PlayersController < ApplicationController
 
   def create
   	@player = Player.new(player_params)  
-    	
+
 	if @player.save
       redirect_to @player
     else      
@@ -44,7 +44,7 @@ class PlayersController < ApplicationController
 
   private
   def player_params
-      params.require(:player).permit(:first_name, :last_name, 
+      params.require(:player).permit(:first_name, :last_name, :avatar,
                                      :avatar_file_name, :avatar_content_type, :avatar_file_size)
   end
  
