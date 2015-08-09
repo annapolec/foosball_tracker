@@ -6,7 +6,7 @@
     <th>Points</th>
     <th></th>
    </tr>
-<%= classification.each do |player| %>
+<% classification.each do |player| %>
 	<tr>
 		<td><%= image_tag player.avatar.url(:thumb), class: 'img-circle' %></td>
 		<td><h4><%= player.first_name %> <%= player.last_name %></h4></td> 

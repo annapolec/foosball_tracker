@@ -9,15 +9,12 @@
 Player.delete_all
 
 Player.create!(first_name: 'Piotr', 
-			   last_name: 'Lis', 
-			   avatar: 'Piotr_Lis.jpg')
+			   last_name: 'Lis')
 
 
 Player.create!(first_name: 'Olga', 
-			   last_name: 'Madej', 
-			   avatar: 'Olga_Madej.jpg')
+			   last_name: 'Madej')
 
 Player.create!(first_name: 'Paula', 
-			   last_name: 'Nowak', 
-			   avatar: 'Paula_Nowak.jpg')
+			   last_name: 'Nowak')
  

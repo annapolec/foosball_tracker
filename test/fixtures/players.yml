@@ -4,16 +4,9 @@ one:
   id: 1
   first_name: Magda
   last_name: Janusz
-  avatar_file_name: "magda.jpg" 
-  avatar_content_type: "image/jpeg"
-  avatar_file_size: 3312234
-  
-  
 
 two:
   id: 2
   first_name: MyString
   last_name: MyString
-  avatar_file_name: "magda.jpg" 
-  avatar_content_type: "image/jpeg"
-  avatar_file_size: 3312234
+  

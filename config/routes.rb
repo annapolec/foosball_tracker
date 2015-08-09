@@ -1,7 +1,12 @@
 FoosballTracker::Application.routes.draw do
-  resources :players
   resources :matches
   resources :rankings
+ 
+  devise_for :players, controllers: { sessions: "players/sessions",
+                                      registrations: "players/registrations",
+                                      passwords: "players/passwords",
+                                      confirmations: "players/confirmations",
+                                      unlocks: "players/unlocks" }
 
   root 'static_pages#index'
 
