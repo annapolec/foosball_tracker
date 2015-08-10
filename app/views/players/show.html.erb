@@ -1,5 +1,4 @@
 <div class="row">
-  <div class="col-sm-6"><%= image_tag @player.avatar.url(:medium), class: 'img-round' %> </div>
   <div class="col-sm-6">
   	<h4> Number of matches: <%= @player.number_of_matches %></h4>
   	<h4> Wins: <%= @player.wins %> </h4> 
@@ -16,15 +15,7 @@
   </div>
 </div>
 
-<%= link_to players_path, class: 'btn btn-default' do %>
-  <span class="glyphicon glyphicon-arrow-left"></span>
-  Back
-<% end %>
 
-<%= link_to edit_player_path(@player), class: 'btn btn-default' do %>
-  <span class="glyphicon glyphicon-pencil"></span>
-  Edit
-<% end %>
 
 
 

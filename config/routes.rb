@@ -1,14 +1,14 @@
 FoosballTracker::Application.routes.draw do
   resources :matches
   resources :rankings
- 
-  devise_for :players, controllers: { sessions: "players/sessions",
-                                      registrations: "players/registrations",
-                                      passwords: "players/passwords",
-                                      confirmations: "players/confirmations",
-                                      unlocks: "players/unlocks" }
+  resources :players, only: [:show, :index]
 
-  root 'static_pages#index'
+  devise_for :player, :path => '', :path_names => { :sign_in => "login", 
+                                                  :sign_out => "logout", 
+                                                  :sign_up => "register" } 
+
+  root to: 'static_pages#index'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
