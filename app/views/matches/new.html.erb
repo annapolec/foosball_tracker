@@ -5,15 +5,30 @@
 		<% end %>
 	<% end %>
 
-<%= form_for @match, url: {action: "create"} do |f| %>
-	<h4>Date: <%= f.text_field :date, id: 'datepicker' %></h4>		
-	<h4>First Player: <%= f.collection_select :player1_id, Player.all, :id, 
-											 											:last_name, :include_blank => true %></h4>
-	<h4>Second Player: <%= f.collection_select :player2_id, Player.all, :id, 
-											  :last_name, :include_blank => true %></h4>
+<div class='row'>
+  <div class="col-md-6 col-md-offset-3">
+		<%= form_for @match, url: {action: "create"} do |f| %>
+			
+    	<%= f.label :date %><br />
+			<%= f.text_field :date, id: 'datepicker', class: 'form-control' %>
+			
+			<%= f.label :first_player %><br />
+			<%= f.collection_select :player1_id, Player.all, 
+															:id, :last_name, :include_blank => true,
+															class: 'form-control' %>
+			<%= f.label :second_name %><br />
+			<%= f.collection_select :player2_id, Player.all, 
+															:id, :last_name, :include_blank => true,
+															class: 'form-control' %>
 
-	<h4>Score of first player: <%= f.text_field :player1_score, class: 'form-control' %></h4>
-	<h4>Score of second player: <%= f.text_field :player2_score, class: 'form-control' %></h4>	
-	<%= f.submit %>
-<% end %>
+			<%= f.label :first_player_score %><br />
+			<%= f.text_field :player1_score, class: 'form-control' %>
+			
+			<%= f.label :second_player_score %><br />
+			<%= f.text_field :player2_score, class: 'form-control' %><br />
+			
+			<%= f.submit 'Submit', class: 'btn btn-primary' %>
+		<% end %>
+	</div>
+</div>
 
