@@ -1,16 +1,25 @@
-<h1>Listing players</h1>
-<table class="table table-striped">
-	<% @players.each do |player| %>		
-    <tr> 	
-  	 	<td><h4><%= player.first_name %> <%=player.last_name %><h4></td>    	 	
-  	</tr>
-	<% end %>
-</table>
+<h1>All players</h1>
+	<%= will_paginate %>
+	<ul class='players'>
+		<% @players.each do |player| %>		
+			<li>
+				<%= gravatar_for(player) %>
+				<%= link_to "#{player.first_name} #{player.last_name}", player %>
+			</li>
+		<% end %>
+	</ul>
+	<%= will_paginate %>
 
-<%= link_to new_player_registration_path, class: 'btn btn-primary btn-lg' do %>
-	<span class="glyphicon glyphicon-plus"></span>
-	New player
-<% end %>
+
+
+
+    
+
+
+
+
+
+
 
 
 

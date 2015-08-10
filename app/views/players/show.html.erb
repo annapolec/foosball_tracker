@@ -1,19 +1,27 @@
 <div class="row">
-  <div class="col-sm-6">
-  	<h4> Number of matches: <%= @player.number_of_matches %></h4>
-  	<h4> Wins: <%= @player.wins %> </h4> 
-  	<h4> Losts: <%= @player.losts %> </h4><br>
-  	<h4> Points in general clasification: <%= @player.points %> </h4>
-  	<h4> Goals: <%= @player.total_score %> </h4>
-  	<h4> Average number of goals: <%= @player.average_number_of_goals %> </h4>  	
+   <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @player %>
+        <%= @player.first_name %>
+        <%= @player.last_name %>
+      </h1> 
+    </section>
+  </aside>
+  
+  <div class="col-md-8">
+  	<h3> Number of matches: <%= @player.number_of_matches %></h3>
+  	<h3> Wins: <%= @player.wins %> </h3> 
+  	<h3> Losts: <%= @player.losts %> </h3><br>
+  	<h3> Points in general clasification: <%= @player.points %> </h3>
+  	<h3> Goals: <%= @player.total_score %> </h3>
+  	<h3> Average number of goals: <%= @player.average_number_of_goals %> </h3>  	
   </div>  
 </div>
 
-<div class="row">
-  <div class="col-sm-4">
-    <h3> <%= @player.first_name %> <%= @player.last_name %> </h3>
-  </div>
-</div>
+
+
+
 
 
 

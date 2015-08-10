@@ -8,13 +8,16 @@
 
 Player.delete_all
 
-Player.create!(first_name: 'Piotr', 
-			   last_name: 'Lis')
 
-
-Player.create!(first_name: 'Olga', 
-			   last_name: 'Madej')
-
-Player.create!(first_name: 'Paula', 
-			   last_name: 'Nowak')
- 
+ 100.times do |n|
+	first_name = Faker::Name.first_name
+	last_name = Faker::Name.last_name
+	email = "example-#{n+1}@example.com"
+	password = "password"
+	password_confirmation = "password"
+	Player.create!(	first_name: first_name,
+									last_name: last_name,
+									email: email,
+									password: password,
+									password_confirmation: password_confirmation)
+end
