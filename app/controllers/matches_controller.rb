@@ -1,5 +1,6 @@
 class MatchesController < ApplicationController
   before_action :authenticate_player!
+  before_action :admin_user, only: [:desotry, :edit]
 
  def new
   	@match = Match.new
@@ -44,6 +45,10 @@ class MatchesController < ApplicationController
                                                 :player1_score, :player2_score)
     #valid_params[:date] = parse_date(valid_params[:date])
     valid_params
+  end
+
+  def admin_user
+    redirect_to root_path unless current_player.admin?
   end
 
   #def parse_date(date_string)

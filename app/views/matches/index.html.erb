@@ -7,10 +7,14 @@
 		<% @matches.each do |match| %>
 	  	<li>
 	  		<%= match.date %>
-		  	<%=match.player1.last_name %>
-		  	<%=match.player2.last_name %>
+		  	<%= match.player1.last_name %>
+		  	<%= match.player2.last_name %>
 		  	<%= match.player1_score %> 
 		  	<%= match.player2_score %>	  	
+		  	<% if current_player.admin? %>
+		  		<%= link_to "Edit", edit_match_path(match) %>
+		  		<%= link_to "Destroy", match, method: :delete, data: { confirm: "You're sure?" } %>
+		  	<% end %>
 		  </li>
 		<% end %>
 	</ul> 
