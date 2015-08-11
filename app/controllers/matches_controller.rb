@@ -1,4 +1,5 @@
 class MatchesController < ApplicationController
+  before_action :authenticate_player!
 
  def new
   	@match = Match.new
@@ -6,8 +7,8 @@ class MatchesController < ApplicationController
 
   def create  	  
   	@match = Match.new(matches_params)
-    binding.pry
     if @match.save
+      @match.add_points_to_players
       redirect_to matches_path
     else      
       render action: 'new'
@@ -15,7 +16,7 @@ class MatchesController < ApplicationController
   end
 
   def index
-    @matches = Match.all
+    @matches = Match.paginate(page: params[:page], per_page: 15)
   end
 
   def destroy

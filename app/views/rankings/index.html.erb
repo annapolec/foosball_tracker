@@ -1,24 +1,13 @@
 <h1>Ranking</h1>
-<table class="table table-striped">
-	<tr>
-  
-    <th>Name</th>
-    <th>Points</th>
-    <th></th>
-   </tr>
-<% classification.each do |player| %>
-	<tr>
-	
-		<td><h4><%= player.first_name %> <%= player.last_name %></h4></td> 
-		<td><h4><%= player.points %></h4></td>
-		<td> 
-  	 		<%= link_to player, class: 'btn btn-default' do %> 
-  	 			<span class="glyphicon glyphicon-search"></span>
-    			Show
-  			<% end %>
-  	 	</td>
-	</tr>
-<% end %>	
+<ul class='index'>
+    <% classification.each do |player| %>   
+      <li>
+        <%= gravatar_for(player) %>
+        <%= link_to "#{player.first_name} #{player.last_name}", player %>
+        <%= player.points %>
+      </li>
+    <% end %>
+</ul>
 
 
 
