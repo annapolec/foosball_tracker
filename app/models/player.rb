@@ -31,12 +31,6 @@ class Player < ActiveRecord::Base
 		Match.where(player2: self, player2_score: 7..9).count
 	end
 
-	def points
-		#winning gives you 3 points
-		#losing with 7 or more goals gives you 1 point
-		3*wins+medium_wins
-	end
-
 	def average_number_of_goals
 		if number_of_matches != 0
 			total_score/number_of_matches

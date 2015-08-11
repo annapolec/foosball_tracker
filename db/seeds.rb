@@ -12,11 +12,13 @@
 	email = "example-#{n+1}@example.org"
 	password = "password"
 	password_confirmation = "password"
+	points = rand(0..50)
 	Player.create!(	first_name: first_name,
 									last_name: last_name,
 									email: email,
 									password: password,
-									password_confirmation: password_confirmation)
+									password_confirmation: password_confirmation,
+									points: points)
 end
 
 29.times do |n|

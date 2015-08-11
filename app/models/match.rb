@@ -9,9 +9,52 @@ class Match < ActiveRecord::Base
 	validate :there_can_be_one_winner
 	validate :player1_has_to_different_than_player2 	
 
- 	private
+	def difference_in_goals_index
+		difference_in_goals = (player1_score - player2_score).abs
+		case difference_in_goals
+			when 1
+			  return 10
+			when 2
+			  return 15
+			else
+			  return (11+difference_in_goals)/0.8
+		end
+	end
 
- 	def player1_has_to_different_than_player2
+	def difference_in_players_points
+		(player1.points-player2.points).abs
+	end
+
+	def winning_probability_for(player)
+		if player == expected_winner
+			1/(10**(-(difference_in_players_points/40.0))+1)
+		else
+			1-1/(10**(-(difference_in_players_points/40.0))+1)
+		end
+	end
+
+	def result_for(player)
+	 player == actual_winner ? 1 : 0
+	end
+
+	def expected_winner
+	 player1.points > player2.points ? player1 : player2		
+	end
+
+	def actual_winner
+		player1_score == 10 ? player1 : player2
+	end
+
+	def add_points_to_players
+		gained_points = difference_in_goals_index*(result_for(player1) - winning_probability_for(player1))
+		player1.update_attribute(:points, player1.points+gained_points)
+		gained_points = difference_in_goals_index*(result_for(player2) - winning_probability_for(player2))
+		player2.update_attribute(:points, player2.points+gained_points)
+	end
+
+	private
+
+	def player1_has_to_different_than_player2
  		errors.add(:player2, 'You have to choose two different players') unless player1 != player2	
  	end 	
 
