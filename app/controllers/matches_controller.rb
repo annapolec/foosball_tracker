@@ -6,6 +6,7 @@ class MatchesController < ApplicationController
 
   def create  	  
   	@match = Match.new(matches_params)
+    binding.pry
     if @match.save
       redirect_to matches_path
     else      
