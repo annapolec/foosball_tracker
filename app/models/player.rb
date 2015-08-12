@@ -26,11 +26,6 @@ class Player < ActiveRecord::Base
 		Match.where(player2: self).where.not(player2_score: 10).count		
 	end
 
-	def medium_wins
-		Match.where(player1: self, player1_score: 7..9).count + 			
-		Match.where(player2: self, player2_score: 7..9).count
-	end
-
 	def average_number_of_goals
 		if number_of_matches != 0
 			total_score/number_of_matches

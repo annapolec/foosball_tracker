@@ -1,12 +1,18 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  id: 1
-  first_name: Magda
-  last_name: Janusz
+john:
+ first_name:  'John'
+ last_name: 'Smith'
+ email: 'john@example.com'
+ points: 40
+ admin: true
 
-two:
-  id: 2
-  first_name: MyString
-  last_name: MyString
+lisa:
+ first_name: 'Lisa'
+ last_name: 'Waldorf'
+ email: 'lisa@example.com'
+ points: 32
+ admin: false
+
+
   

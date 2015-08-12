@@ -5,11 +5,18 @@
 # below each fixture, per the syntax in the comments below
 #
 one: 
- date: 12/06/2015
- player1_id: 2
- player2_id: 1
- player1_score: 3
+ date: '12/06/2015'
+ player1_id: john
+ player2_id: lisa
+ player1_score: 7
  player2_score: 10
 
+two:
+ date: '23/07/2015'
+ player1_id: lisa
+ player2_id: john
+ player1_score: 10
+ player2_score: 4
+
  
-#  column: value
+

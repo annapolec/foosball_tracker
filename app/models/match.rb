@@ -6,8 +6,8 @@ class Match < ActiveRecord::Base
 	validates :player1_score, :player2_score, numericality: { only_integer: true }
 	validates_inclusion_of :player1_score, :player2_score, in: 0..10
 
-	validate :there_can_be_one_winner
-	validate :player1_has_to_different_than_player2 	
+	validate :there_should_be_one_winner
+	validate :player1_has_to_be_different_than_player2 	
 
 	def difference_in_goals_index
 		difference_in_goals = (player1_score - player2_score).abs
@@ -54,12 +54,12 @@ class Match < ActiveRecord::Base
 
 	private
 
-	def player1_has_to_different_than_player2
- 		errors.add(:player2, 'You have to choose two different players') unless player1 != player2	
+	def player1_has_to_be_different_than_player2
+ 		errors.add(:player2, 'You have to choose two different players') unless player1_id != player2_id
  	end 	
 
- 	def there_can_be_one_winner
- 		errors.add(:score1, 'There can be only one winner') unless 
+ 	def there_should_be_one_winner
+ 		errors.add(:score1, 'There should be one winner') unless 
  			((player1_score == 10 || player2_score == 10)&&(player1_score+player2_score!=20)) 		
  	end
 end
