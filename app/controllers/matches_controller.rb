@@ -1,8 +1,8 @@
 class MatchesController < ApplicationController
   before_action :authenticate_player!
-  before_action :admin_user, only: [:desotry, :edit]
+  before_action :admin_user, only: [:destroy, :edit, :update]
 
- def new
+  def new
   	@match = Match.new
   end
 
@@ -48,7 +48,8 @@ class MatchesController < ApplicationController
   end
 
   def admin_user
-    redirect_to root_path unless current_player.admin?
+    flash[:dnager] = 'You have to be an admin to'
+    redirect_to root_path unless current_player.admin
   end
 
   #def parse_date(date_string)

@@ -1,13 +1,10 @@
 require 'test_helper'
 
 class RankingsControllerTest < ActionController::TestCase
- 
- test "should get index" do
-	get :index
-	assert_response :success
-	assert_not_nil assigns(:players)
-	assert_not_nil assigns(:matches)
- end
 
-
+	test 'should redirect index when not logged in' do
+    get :index
+    assert_not flash.empty?
+    assert_redirected_to new_player_session_path
+  end
 end
