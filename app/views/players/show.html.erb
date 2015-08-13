@@ -10,12 +10,15 @@
   </aside>
   
   <div class="col-md-8">
-  	<h3> Number of matches: <%= @player.number_of_matches %></h3>
-  	<h3> Wins: <%= @player.wins %> </h3> 
-  	<h3> Losts: <%= @player.losts %> </h3><br>
-  	<h3> Points in general clasification: <%= @player.points %> </h3>
-  	<h3> Goals: <%= @player.total_score %> </h3>
-  	<h3> Average number of goals: <%= @player.average_number_of_goals %> </h3>  	
+    <ul class="player_statistics">
+      <li>Position in general classification: <%= @player.position_in_classification %>
+      <li>Points in general clasification: <%= @player.points %></li><br />
+    	<li>Number of matches: <%= @player.number_of_matches %></li>
+    	<li>Wins: <%= @player.wins %></li>
+    	<li>Losts: <%= @player.losts %></li>    	
+    	<li>Goals: <%= @player.total_score %></li>
+    	<li>Average number of goals: <%= @player.average_number_of_goals %></li>
+    </ul>
   </div>  
 </div>
 

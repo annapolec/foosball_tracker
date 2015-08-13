@@ -1,13 +1,15 @@
 <h1>Ranking</h1>
-<ul class='index'>
-    <% classification.each do |player| %>   
-      <li>
-        <%= gravatar_for(player) %>
-        <%= link_to "#{player.first_name} #{player.last_name}", player %>
-        <%= player.points %>
-      </li>
-    <% end %>
-</ul>
+	<ul class='index'>
+		<% @rankings.each do |player| %>  
+	    <li>
+      <%= gravatar_for(player) %>
+      <%= link_to "#{player.first_name} #{player.last_name}", player %>
+      <%= player.points %> points
+    	</li>		    
+	  <% end %>
+  <%= will_paginate %>
+  </ul>
+
 
 
 

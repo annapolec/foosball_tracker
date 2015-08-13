@@ -4,8 +4,8 @@ FoosballTracker::Application.routes.draw do
   resources :players, only: [:show, :index]
 
   devise_for :player, :path => '', :path_names => { :sign_in => "login", 
-                                                  :sign_out => "logout", 
-                                                  :sign_up => "register" } 
+                                                    :sign_out => "logout", 
+                                                    :sign_up => "register" } 
 
   root to: 'static_pages#index'
 

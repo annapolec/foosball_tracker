@@ -32,4 +32,13 @@ class Player < ActiveRecord::Base
 		end
 	end
 
+	def position_in_classification
+		classification = Player.all.sort_by(&:points).reverse
+		position = 1
+		classification.each do |player|
+			return position if player.id == self.id 	
+			position = position+1 
+		end
+	end
+
 end

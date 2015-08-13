@@ -1,3 +1,4 @@
+require 'will_paginate/array'
 class MatchesController < ApplicationController
   before_action :authenticate_player!
   before_action :admin_user, only: [:destroy, :edit, :update]
@@ -17,7 +18,7 @@ class MatchesController < ApplicationController
   end
 
   def index
-    @matches = Match.paginate(page: params[:page], per_page: 15)
+    @matches = Match.all.sort_by(&:date).reverse.paginate(page: params[:page], per_page: 10)
   end
 
   def destroy
@@ -32,7 +33,7 @@ class MatchesController < ApplicationController
 
   def update
   	@match = Match.find(params[:id])	
-    if @match.update(matches_params)
+    if @match.update_attributes(matches_params)
       redirect_to matches_path
     else      
       render action: 'edit'
@@ -41,18 +42,12 @@ class MatchesController < ApplicationController
 
   private
   def matches_params
-    valid_params = params.require(:match).permit(:date, :player1_id, :player2_id, 
-                                                :player1_score, :player2_score)
-    #valid_params[:date] = parse_date(valid_params[:date])
-    valid_params
+    params.require(:match).permit(:date, :player1_id, :player2_id, 
+                                  :player1_score, :player2_score)
   end
 
   def admin_user
-    flash[:dnager] = 'You have to be an admin to'
     redirect_to root_path unless current_player.admin
+    flash.now[:danger] = 'You have to be an admin to do that'
   end
-
-  #def parse_date(date_string)
-   # Date.strptime(date_string, "%m/%d/%Y")
-  #end
 end

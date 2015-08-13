@@ -1,18 +1,14 @@
 <h1>Editing match</h1>
-<% if @match.errors != nil %>
-		<% @match.errors.full_messages.each do |message| %>
-			<%= message %>
-		<% end %>
-<% end %>
 <div class='row'>
   <div class="col-md-6 col-md-offset-3">
-		<%= form_for @match, url: {action: "create"} do |f| %>
+		<%= form_for @match, url: {action: "update"} do |f| %>
+		<%= render 'shared/error_messages', object: f.object %>
 			
     	<%= f.label :date %><br />
 			<%= f.text_field :date, id: 'datepicker', class: 'form-control' %>
 			
 			<%= f.label :first_player %><br />
-			<%= f.collection_select :player1_id, Player.all, 
+			<%= f.collection_select :player1_id, Player.all.sort_by(&:last_name), 
 															:id, :last_name, :include_blank => true,
 															class: 'form-control' %>
 			<%= f.label :second_name %><br />
