@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-	before_action :authenticate_player!
+	before_action :authenticate_player!, only: [:create, :destroy]
 	before_action :correct_player, only: [:destroy]
 
 	def create

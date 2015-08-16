@@ -3,7 +3,8 @@
 		<% @rankings.each do |player| %>  
 	    <li>
       <%= gravatar_for(player) %>
-      <%= link_to "#{player.first_name} #{player.last_name}", player %>
+      <%= player.position_in_classification %>.
+      <%= link_to "#{player.first_name} #{player.last_name}", player %><br>
       <%= player.points %> points
     	</li>		    
 	  <% end %>

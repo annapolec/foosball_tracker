@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class MatchTest < ActiveSupport::TestCase
-
 	def setup
 		@match = Match.new(	date: '23/06/2015',
 												player1_id: 1,
@@ -52,6 +51,4 @@ class MatchTest < ActiveSupport::TestCase
 		@match.player2_id = 1
 		assert_not @match.valid?
 	end
-
-	
 end
