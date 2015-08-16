@@ -94,8 +94,7 @@ footer {
 }
 
 /* forms */
-
-input, textarea, select, .uneditable-input {
+input, textarea, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
   margin-bottom: 15px;
@@ -108,7 +107,7 @@ input {
 
 .select-date-wrapper{
   select:first-of-type{
-    width: 45%;
+    width: 20%;
   }
   select:nth-of-type(2){
     width: 20%;
@@ -196,6 +195,15 @@ input {
     color: #e8e8e8;
     display: block;
     margin-left: 60px;
+  }
+}
+
+.match_info { 
+  float: left;
+  list-style: none;
+  padding: 0;
+  li {
+    padding: 5px 0;
   }
 }
 

@@ -19,6 +19,11 @@ class MatchTest < ActiveSupport::TestCase
 			assert_not @match.valid?
 	end	
 
+	test 'date should be in the past or today' do
+			@match.date = Date.tomorrow
+			assert_not @match.valid?
+	end	
+
 	test 'players id should be present' do
 			@match.player1_id = ''
 			assert_not @match.valid?

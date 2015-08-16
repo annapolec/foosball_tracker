@@ -4,21 +4,18 @@
 		<%= form_for @match, url: {action: "create"} do |f| %>
 		<%= render 'shared/error_messages', object: f.object %>
 			
-    	<%= f.label :date %><br />
-
-	    <div class="large-12 columns select-date-wrapper">
-				<%= f.date_select :date, :prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year'} %>
-			</div>			
-			
-			<%= f.label :first_player %><br />
-			<%= f.collection_select :player1_id, Player.all.sort_by(&:last_name), 
-															:id, :last_name, :include_blank => true,
-															class: 'form-control' %>
-			<%= f.label :second_name %><br />
-			<%= f.collection_select :player2_id, Player.all, 
-															:id, :last_name, :include_blank => true,
-															class: 'form-control' %>
-
+  	<%= f.label :date %><br />
+    <div class="large-12 columns select-date-wrapper">
+			<%= f.date_select :date, start_year: 2015, :prompt => { :day => 'Select day', :month => 'Select month', :year => 'Select year'} %>
+		</div>			
+		
+		<%= f.label :first_player %><br />
+		<%= f.collection_select :player1_id, Player.all.sort_by(&:last_name), 
+														:id, :last_name, :include_blank => true %><br />
+		<%= f.label :second_name %><br />
+		<%= f.collection_select :player2_id, Player.all, 
+														:id, :last_name, :include_blank => true %><br />
+		
 			<%= f.label :first_player_score %><br />
 			<%= f.text_field :player1_score, class: 'form-control' %>
 			

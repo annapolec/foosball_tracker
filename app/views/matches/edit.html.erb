@@ -9,12 +9,10 @@
 			
 			<%= f.label :first_player %><br />
 			<%= f.collection_select :player1_id, Player.all.sort_by(&:last_name), 
-															:id, :last_name, :include_blank => true,
-															class: 'form-control' %>
+															:id, :last_name, :include_blank => true %><br />
 			<%= f.label :second_name %><br />
 			<%= f.collection_select :player2_id, Player.all, 
-															:id, :last_name, :include_blank => true,
-															class: 'form-control' %>
+															:id, :last_name, :include_blank => true %><br />
 
 			<%= f.label :first_player_score %><br />
 			<%= f.text_field :player1_score, class: 'form-control' %>

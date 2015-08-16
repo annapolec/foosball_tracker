@@ -46,11 +46,11 @@ end
 								player2_score: player2_score)
 end
 
-30.times do |n|
+58.times do |n|
 	match = Match.find(n+1)
 	3.times do |m|
-		c = Hash.new(content: Faker::Lorem.sentence)
-		comment = match.comments.build(c[:content])
+		data = Hash.new(content: Faker::Lorem.sentence)
+		comment = match.comments.build(data[:content])
 		player_id = rand(30)
 		comment.player_id = player_id
 		comment.save!

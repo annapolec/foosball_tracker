@@ -6,6 +6,7 @@ class Match < ActiveRecord::Base
 	validates :date, :player1_id, :player2_id, :player1_score, :player2_score, presence: true
 	validates :player1_score, :player2_score, numericality: { only_integer: true }
 	validates_inclusion_of :player1_score, :player2_score, in: 0..10
+	validates_date :date, :before => lambda { Date.tomorrow }
 
 	validate :there_should_be_one_winner
 	validate :player1_has_to_be_different_than_player2 	
