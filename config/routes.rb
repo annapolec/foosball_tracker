@@ -1,12 +1,13 @@
 FoosballTracker::Application.routes.draw do
-  resources :matches
-  resources :rankings
   resources :players, only: [:show, :index]
+  resources :matches do
+    resources :comments, only: [:create, :destroy]
+  end
+  resources :rankings, only: [:index]  
 
-  devise_for :player, :path => '', :path_names => { :sign_in => "login", 
-                                                    :sign_out => "logout", 
-                                                    :sign_up => "register" } 
-
+  devise_for :player, path: '', path_names: { sign_in: "login", 
+                                                    sign_out: "logout", 
+                                                    sign_up: "register" } 
   root to: 'static_pages#index'
 
 

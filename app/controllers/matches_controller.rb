@@ -40,6 +40,11 @@ class MatchesController < ApplicationController
   	end  	
   end
 
+  def show
+    @match = Match.find(params[:id])
+    @comments = @match.comments.paginate(page: params[:page], per_page: 8)
+  end
+
   private
   def matches_params
     params.require(:match).permit(:date, :player1_id, :player2_id, 

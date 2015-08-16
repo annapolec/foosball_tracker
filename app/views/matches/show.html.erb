@@ -1,0 +1,19 @@
+<div class="row">
+	<aside class="col-md-4">
+		<%= @match.date %>
+		<%= @match.player1.last_name %>
+		<%= @match.player2.last_name %>
+		<%= @match.player1_score %>
+		<%= @match.player2_score %>
+	</aside>
+	<div class="col-md-8">
+		<% if @match.comments.any? %>
+			<h3>Comments (<%= @match.comments.count %>)</h3>
+			<ol class="comments">
+				<%= render @comments %>
+			</ol>
+			<%= will_paginate @comments %>			
+		<% end %>
+		<%= render 'comments/comment_form' %>		
+	</div>	
+</div>

@@ -3,12 +3,11 @@
   	<%= link_to new_match_path, class: 'btn btn-primary btn-lg' do %>
 			<span class="glyphicon glyphicon-plus"></span>
 			New match
-			<% end %>
+		<% end %>
 		<% @matches.each do |match| %>
 	  	<li>
 	  		<%= match.date %> |
-		  	<%= match.player1.last_name %> vs
-		  	<%= match.player2.last_name %> |
+	  		<%= link_to "#{ match.player1.last_name } vs #{ match.player2.last_name } | ",						match_path(match) %>
 		  	<%= match.player1_score %>:<%= match.player2_score %>	  	
 		  	<% if current_player.admin? %>
 		  		<%= link_to "Edit", edit_match_path(match) %>

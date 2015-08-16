@@ -9,7 +9,7 @@
 30.times do |n|
 	first_name = Faker::Name.first_name
 	last_name = Faker::Name.last_name
-	email = "example-#{n+1}@example.org"
+	email = "example-#{n+1}@example.com"
 	password = "password"
 	password_confirmation = "password"
 	points = rand(0..50)
@@ -46,3 +46,13 @@ end
 								player2_score: player2_score)
 end
 
+30.times do |n|
+	match = Match.find(n+1)
+	3.times do |m|
+		c = Hash.new(content: Faker::Lorem.sentence)
+		comment = match.comments.build(c[:content])
+		player_id = rand(30)
+		comment.player_id = player_id
+		comment.save!
+	end
+end

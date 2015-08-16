@@ -1,0 +1,14 @@
+<li>
+ 	<span class="content">
+ 		<%= gravatar_for(comment.player, size: 40) %>
+		<%= "#{comment.player.last_name}:" %>
+	 	<%= comment.content %>
+	</span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(comment.created_at) %> ago.
+			<% if current_player == comment.player %>
+				<%= link_to "delete", match_comment_path(comment.match_id, comment), method: :delete,
+																data: { confirm: "Are you sure?" } %> 
+			<% end %>
+	</span>
+</li>			

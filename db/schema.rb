@@ -11,7 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150811155839) do
+ActiveRecord::Schema.define(version: 20150814131817) do
+
+  create_table "comments", force: true do |t|
+    t.text     "content"
+    t.integer  "player_id"
+    t.integer  "match_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "comments", ["match_id", "created_at"], name: "index_comments_on_match_id_and_created_at"
+  add_index "comments", ["match_id"], name: "index_comments_on_match_id"
+  add_index "comments", ["player_id", "created_at"], name: "index_comments_on_player_id_and_created_at"
+  add_index "comments", ["player_id"], name: "index_comments_on_player_id"
 
   create_table "matches", force: true do |t|
     t.date     "date"
