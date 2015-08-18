@@ -29,17 +29,14 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'devise'
 
-gem "paperclip", "~> 4.2"
-
-group :development, :test do
-	gem 'pry'
-end
-
 group :development, :test do
   gem 'sqlite3',     '1.3.9'
+  gem 'pry'
 end
+
 group :production do
   gem 'pg',             '0.18.2'
+  gem 'rails_12factor', '0.0.2'
 end
 
 group :doc do
