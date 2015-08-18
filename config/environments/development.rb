@@ -27,10 +27,6 @@ FoosballTracker::Application.configure do
   # number of complex assets.
   config.assets.debug = true
 
-  # Paperclip config:
-  Paperclip.options[:image_magick_path] = "/opt/ImageMagick-6.9/bin"
-  Paperclip.options[:command_path] = "/opt/ImageMagick-6.9/bin"
-
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
 end
