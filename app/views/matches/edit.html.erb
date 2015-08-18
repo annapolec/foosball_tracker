@@ -5,7 +5,7 @@
 		<%= render 'shared/error_messages', object: f.object %>
 			
     	<%= f.label :date %><br />
-			<%= f.text_field :date, id: 'datepicker', class: 'form-control' %>
+			<%= f.text_field :date, class: 'form-control' %>
 			
 			<%= f.label :first_player %><br />
 			<%= f.collection_select :player1_id, Player.all.sort_by(&:last_name), 
